@@ -19,6 +19,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Button, Popover, Stack } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { toast } from "react-toastify";
+import SyncLockRoundedIcon from "@mui/icons-material/SyncLockRounded";
 
 const drawerWidth = 240;
 
@@ -99,6 +100,7 @@ export default function FullLayout() {
     });
     navigate("/login");
   };
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: "flex" }}>
@@ -152,9 +154,30 @@ export default function FullLayout() {
                 horizontal: "center",
               }}
             >
-              <Stack direction={"column"}>
+              <Stack direction={"column"} className="flex ">
+                <Button
+                  className="!px-6 whitespace-nowrap"
+                  sx={{
+                    display: "flex",
+                    textAlign: "start",
+                    paddingLeft: "20px",
+                    paddingRight: "20px",
+                    justifyContent: "start",
+                  }}
+                  onClick={() => navigate("/reset-password")}
+                  startIcon={<SyncLockRoundedIcon />}
+                >
+                  Reset Password
+                </Button>
                 <Button
                   className="!px-6"
+                  sx={{
+                    display: "flex",
+                    textAlign: "start",
+                    paddingLeft: "20px",
+                    paddingRight: "20px",
+                    justifyContent: "start",
+                  }}
                   onClick={logout}
                   startIcon={<LogoutIcon />}
                 >
