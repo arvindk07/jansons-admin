@@ -219,6 +219,7 @@ const Product = () => {
     const selectedFiles = Array.from(e.target.files);
     setValue("photos", selectedFiles);
   };
+  console.log("selectdropDownValue==>", selectdropDownValue);
 
   // Function to remove an image from the list
   const removeImage = (index) => {
@@ -586,6 +587,18 @@ const Product = () => {
               <MenuItem value={data?._id}>{data?.name}</MenuItem>
             ))}
           </Select>
+          {dropDownValue && (
+            <Button
+              variant="outlined"
+              style={{ textTransform: "capitalize", whiteSpace: "nowrap" }}
+              onClick={() => {
+                setSelectDropDownValue("");
+                setDropDownValue("");
+              }}
+            >
+              All Product
+            </Button>
+          )}
         </Box>
         <Box display={"flex"} gap={2} alignItems={"center"}>
           <IconButton
